@@ -17,12 +17,26 @@ class MathStuff {
      * Function call with lambda as argument - yay!
      */
     fun add(a: Int, b: Int): Int {
-        return performCalculation(a, b) { x, y -> x + y }
+        return performIntCalculation(a, b) { x, y -> x + y }
 
     }
 
-    private fun performCalculation(a: Int, b: Int, operation: (Int, Int) -> Int): Int {
+    /**
+     * Performs operation on the passed in Ints of a and b.
+     */
+    private fun performIntCalculation(a: Int, b: Int, operation: (Int, Int) -> Int): Int {
         return operation(a, b)
+    }
+
+    /**
+     * Performs mapFunction on every element of the passed in IntArray.
+     */
+    fun map(elements: IntArray, mapFunction: (Int) -> Int): IntArray {
+        var resultsArray = IntArray(elements.size)
+        for ((index, value) in elements.withIndex()) {
+            resultsArray[index] = mapFunction(value)
+        }
+        return resultsArray
     }
 
     /**
