@@ -3,6 +3,28 @@ package kt.playground
 import com.marcinmoskala.math.permutations
 
 class MathStuff {
+
+    /**
+     * We can assign function references as values, yay!
+     */
+    fun funtionalAssignment() {
+        val function: (Int) -> Int
+        function = { x -> x * x }
+        print(function(5))
+    }
+
+    /**
+     * Function call with lambda as argument - yay!
+     */
+    fun add(a: Int, b: Int): Int {
+        return performCalculation(a, b) { x, y -> x + y }
+
+    }
+
+    private fun performCalculation(a: Int, b: Int, operation: (Int, Int) -> Int): Int {
+        return operation(a, b)
+    }
+
     /**
      * For a given combination of 3 integers, evaluates if there is a combination
      * of the three that allows constructing a triangle (that is, the sum
