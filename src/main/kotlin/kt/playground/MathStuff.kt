@@ -30,9 +30,10 @@ class MathStuff {
 
     /**
      * Performs mapFunction on every element of the passed in IntArray.
+     * If no function is passed in, defaults to adding 1 to each element
      */
-    fun map(elements: IntArray, mapFunction: (Int) -> Int): IntArray {
-        var resultsArray = IntArray(elements.size)
+    fun map(elements: IntArray, mapFunction: (Int) -> Int = { elem -> elem + 1 }): IntArray {
+        val resultsArray = IntArray(elements.size)
         for ((index, value) in elements.withIndex()) {
             resultsArray[index] = mapFunction(value)
         }

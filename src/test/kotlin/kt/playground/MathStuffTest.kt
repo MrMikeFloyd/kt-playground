@@ -61,5 +61,11 @@ class MathStuffTest {
         val classUnderTest = MathStuff()
         assertThat(classUnderTest.map(intArrayOf(1, 2, 3, 4, 5)) { elem -> elem * 2 }).isEqualTo(intArrayOf(2, 4, 6, 8, 10))
     }
+
+    @Test
+    fun defaults_to_adding_1_to_each_element() {
+        val classUnderTest = MathStuff()
+        assertThat(classUnderTest.map(intArrayOf(1, 2, 3, 4, 5))).isEqualTo(intArrayOf(2, 3, 4, 5, 6))
+    }
 }
 
